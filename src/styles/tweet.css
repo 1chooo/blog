@@ -8,9 +8,10 @@
   /* Light colors */
   --tweet-bg-color: #fff;
   --tweet-bg-color-hover: var(--tweet-bg-color);
-  --tweet-color-blue-secondary: theme("colors.gray.600");
-  --tweet-color-blue-secondary-hover: theme("colors.gray.100");
-  --tweet-font-color-secondary: theme("colors.gray.500");
+  /* Tailwind theme(...) replaced by concrete hex fallbacks to avoid postcss resolution issues */
+  --tweet-color-blue-secondary: #4b5563; /* gray-600 */
+  --tweet-color-blue-secondary-hover: #f3f4f6; /* gray-100 */
+  --tweet-font-color-secondary: #6b7280; /* gray-500 */
 
   /* Common properties for both themes */
   --tweet-quoted-bg-color-hover: rgba(0, 0, 0, 0.03);
@@ -42,9 +43,10 @@
     --tweet-bg-color-hover: var(--tweet-bg-color);
     --tweet-quoted-bg-color-hover: rgba(255, 255, 255, 0.03);
     --tweet-border: 1px solid #333;
-    --tweet-color-blue-secondary: theme("colors.white");
-    --tweet-color-blue-secondary-hover: #333;
-    --tweet-font-color-secondary: theme("colors.gray.400");
+  /* Dark theme fallbacks */
+  --tweet-color-blue-secondary: #ffffff; /* white */
+  --tweet-color-blue-secondary-hover: #333;
+  --tweet-font-color-secondary: #9ca3af; /* gray-400 */
   }
 }
 
@@ -55,13 +57,24 @@
 }
 
 .tweet .react-tweet-theme p a {
-  @apply border-b transition-[border-color] border-gray-300 hover:border-gray-600;
+  /* Replaced Tailwind @apply with explicit CSS to avoid unknown-utility errors */
+  border-bottom: 1px solid #d1d5db; /* border-gray-300 */
+  transition: border-color 0.2s ease;
+}
+
+.tweet .react-tweet-theme p a:hover {
+  border-bottom-color: #4b5563; /* gray-600 */
 }
 
 /* Dark theme link styles */
 @media (prefers-color-scheme: dark) {
   .tweet .react-tweet-theme p a {
-    @apply text-white border-gray-500 hover:border-white;
+    color: #ffffff;
+    border-bottom: 1px solid #6b7280; /* border-gray-500 */
+  }
+
+  .tweet .react-tweet-theme p a:hover {
+    border-bottom-color: #ffffff;
   }
 }
 
@@ -71,5 +84,6 @@
 }
 
 .tweet a div {
-  @apply font-medium tracking-tight;
+  font-weight: 500; /* font-medium */
+  letter-spacing: -0.01em; /* tracking-tight (approx) */
 }

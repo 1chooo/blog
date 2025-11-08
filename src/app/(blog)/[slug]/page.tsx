@@ -90,7 +90,7 @@ export default async function Blog({ params }) {
       </FadeLeft>
       <FadeUp delay={0.3 * 2}>
         <div className="flex justify-between items-center mt-2 mb-4 text-sm flex-nowrap">
-          <p className="font-mono text-xs text-neutral-600 dark:text-neutral-400 flex-shrink-0">
+          <p className="font-mono text-xs text-neutral-600 dark:text-neutral-400 shrink-0">
             <Link
               rel="noopener noreferrer"
               target="_blank"
@@ -106,7 +106,7 @@ export default async function Blog({ params }) {
           </p>
           <Suspense fallback={<div className="text-xs">Loading views...</div>}>
             <ViewCounter
-              className="font-mono text-xs text-neutral-600 dark:text-neutral-400 flex-shrink-0"
+              className="font-mono text-xs text-neutral-600 dark:text-neutral-400 shrink-0"
               slug={post.slug}
               trackView
             />
