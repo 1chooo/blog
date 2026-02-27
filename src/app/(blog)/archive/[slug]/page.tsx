@@ -104,14 +104,14 @@ export default async function Blog({ params }) {
             {" | "}
             {post.readingTime}
           </p>
-          <Suspense fallback={<div className="text-xs">Loading views...</div>}>
+          {/* <Suspense fallback={<div className="text-xs">Loading views...</div>}>
             <ViewCounter
               className="font-mono text-xs text-neutral-600 dark:text-neutral-400 flex-shrink-0"
               slug={post.slug}
               trackView
               isArchive={true}
             />
-          </Suspense>
+          </Suspense> */}
         </div>
       </FadeUp>
       <FadeIn delay={0.3 * 3}>
