@@ -25,12 +25,18 @@ export default async function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundImage: `url(${imagePath})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
+          backgroundColor: "#18181b",
+          fontSize: 60,
+          fontWeight: 800,
         }}
-      ></div>
+      >
+        <div style={{ marginTop: 40, color: "#fafafa" }}>
+          Hugo
+        </div>
+        <div style={{ marginTop: 40, color: "#fafafa" }}>
+          Dev
+        </div>
+      </div>
     ),
     {
       ...size,
